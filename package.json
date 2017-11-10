@@ -9,8 +9,8 @@
     "connect-ensure-login": "0.1.1",
     "express": "3.2.5",
     "http-proxy": "0.10.x",
-    "passport": "0.2.x",
-    "passport-saml": "^0.5.2",
+    "passport": "0.4.x",
+    "passport-saml": "0.31.x",
     "winston": "0.7.x",
     "winston-stderr": "0.0.3"
   }
