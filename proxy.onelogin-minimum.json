@@ -1,0 +1,21 @@
+{
+    "port" : 3000,
+    "externalProtocol" : "http",
+    "credentialsHeader" : "X-Auth-Credentials",
+    "signatureHeader"    : "X-Auth-Signature",
+    "certDir" : "cert",
+    "saml" : {
+        "entryPoint": "https://yourorg.onelogin.com/trust/saml2/http-redirect/sso/yourapp",
+        "protocol": "http://"
+    },
+    "indexPath" : "/proxy/ui/HelloWorldUI.html",
+    "sessionSecret" : "x&^RYg97c7dngw97dcg7&6T&^t967NC69WDQ0W89",
+    "sessionDuration" : 300000,
+    "routes": [
+        {
+            "routedPrefix": "/hello-world",
+            "destination": "hello-world",
+            "destinationPort": 8000
+        }
+    ]
+}
