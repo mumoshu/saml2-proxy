@@ -120,6 +120,10 @@ At last, I'd recommend reading the the following documentations for further, det
 
 - ["How to Use the OneLogin SAML Test Connector – OneLogin Help Center"](https://support.onelogin.com/hc/en-us/articles/202673944-How-to-Use-the-OneLogin-SAML-Test-Connector) for more detailed configuration options.
 
+- [A complete example of passport-saml, the underlying library providing SAML 2.0 support for saml2-proxy](https://github.com/anrid/ddash/blob/c10cc14af9a920d49e34753e36351cad0673f880/api/server/passportSamlExample.js)
+
+- [An excellent Stackoverflow answer explaining the overview of SAML and passport-saml](https://stackoverflow.com/a/36897549)
+
 ## Trouble-shooting
 
 - If you've got a `Something Went Wrong` error from OneLogin Web, double-check that you did add the user to your OneLogin app. Please see [this article](https://confluence.atlassian.com/hipchatkb/onelogin-login-issue-with-something-went-wrong-error-872280901.html) for more context.
