@@ -74,3 +74,52 @@ Below is the content of `proxy.example.json`. This file provides all possible op
 
 ```
 ---
+
+## Minimal configuration for OneLogin SAML Test Connector (SP)
+
+```
+$ cp proxy.onelogin-minimum.json proxy.json
+$ vi proxy.json
+```
+
+In `proxy.json`, update `saml.entryPoint` to match the HTTP-Redirect URL for your OneLogin app.
+This is the only change required for you to make the SAML SSO work anyway.
+
+In case it helps, you can navigate to the SAML Metadata XML file from the `MORE ACTIONS` button in your OneLogin app page.
+
+Also in your OneLogin app page, navigate to the `Configuration` tab and fill in the following details:
+
+- For `ACS (Consumer) URL Validator*`, fill in `^http:\/\/localhost:3000\/saml`
+- For `ACS (Consumer) URL*`, fill in `http://localhost:3000/saml`
+- Don't forget to save the configuration by clicking the `SAVE` button in the top-right corner of your OneLogin app page!
+
+Run `app.js` to start the local server:
+
+```
+$ npm install
+$ npm run start
+```
+
+Finally, test the the login sequence by running:
+
+```
+$ open http://localhost:3000/saml
+```
+
+If you'd like to test it with real DNS names,
+
+- Deploy your app to a machine accessible via the Internet
+- Expose it via public IP, public DNS name, directly or via a load balancer
+- Update the ACS URL and its regex pattern under your OneLogin app's configuration tab
+
+Hope this helps.
+
+At last, I'd recommend reading the the following documentations for further, detailed configuration:
+
+- [The password-saml documentation](https://github.com/bergie/passport-saml#config-parameter-details) for possible configuration options which can be specified under the `saml` key of the configuration file.
+
+- ["How to Use the OneLogin SAML Test Connector – OneLogin Help Center"](https://support.onelogin.com/hc/en-us/articles/202673944-How-to-Use-the-OneLogin-SAML-Test-Connector) for more detailed configuration options.
+
+## Trouble-shooting
+
+- If you've got a `Something Went Wrong` error from OneLogin Web, double-check that you did add the user to your OneLogin app. Please see [this article](https://confluence.atlassian.com/hipchatkb/onelogin-login-issue-with-something-went-wrong-error-872280901.html) for more context.
